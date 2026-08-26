@@ -58,9 +58,8 @@ export function LoginPage() {
       <section className="flex items-center justify-center p-6 sm:p-12">
         <div className="w-full max-w-sm">
           <div className="mb-8 flex flex-col items-center lg:hidden">
-            <MimiScene size="md" className="mb-3" />
-            <div className="flex items-center gap-2">
-              <Logo className="h-10 w-10" />
+            <div className="flex flex-col items-center gap-2">
+              <Logo className="h-30 w-30" />
               <span className="font-display text-2xl font-semibold">MIMI</span>
             </div>
           </div>
