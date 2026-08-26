@@ -4,7 +4,11 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
+/** En GitHub Pages la app vive en /Mimi-AI/, no en la raíz del dominio. */
+const base = process.env.GITHUB_PAGES === 'true' ? '/Mimi-AI/' : '/'
+
 export default defineConfig({
+  base,
   plugins: [
     react(),
     tailwindcss(),
@@ -19,8 +23,8 @@ export default defineConfig({
         background_color: '#f9f9f9',
         display: 'standalone',
         orientation: 'portrait-primary',
-        start_url: '/',
-        scope: '/',
+        start_url: base,
+        scope: base,
         lang: 'es',
         icons: [
           { src: 'pwa-192.png', sizes: '192x192', type: 'image/png' },
@@ -35,7 +39,7 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,svg,png,ico,woff2}'],
-        navigateFallback: '/index.html',
+        navigateFallback: `${base}index.html`,
       },
     }),
   ],
