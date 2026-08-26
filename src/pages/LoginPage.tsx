@@ -5,7 +5,7 @@ import { Logo } from '../components/brand/Logo'
 import { MimiScene } from '../components/brand/MimiScene'
 
 export function LoginPage() {
-  const { signIn, signUp, signInWithGoogle, continueDemo, isDemo } = useAuth()
+  const { signIn, signUp, signInWithGoogle, continueDemo, isDemo, user } = useAuth()
   const navigate = useNavigate()
   const [mode, setMode] = useState<'in' | 'up'>('in')
   const [email, setEmail] = useState('')
@@ -40,6 +40,7 @@ export function LoginPage() {
         <div className="relative flex flex-1 items-center justify-center overflow-hidden py-6">
           <MimiScene
             size="hero"
+            paused={Boolean(user)}
             splineUrl="https://prod.spline.design/RqTMcMyg7pjNrJIA/scene.splinecode"
           />
         </div>

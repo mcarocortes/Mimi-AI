@@ -7,7 +7,11 @@ declare module 'react' {
   namespace JSX {
     interface IntrinsicElements {
       'spline-viewer': DetailedHTMLProps<
-        HTMLAttributes<HTMLElement> & { url?: string },
+        HTMLAttributes<HTMLElement> & {
+          url?: string
+          renderer?: 'auto' | 'webgpu' | 'webgl' | 'webgl2'
+          unloadable?: boolean | string
+        },
         HTMLElement
       >
     }
