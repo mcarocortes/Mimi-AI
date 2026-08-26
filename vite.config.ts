@@ -23,7 +23,7 @@ export default defineConfig({
         background_color: '#f9f9f9',
         display: 'standalone',
         orientation: 'portrait-primary',
-        start_url: base,
+        start_url: `${base}login`,
         scope: base,
         lang: 'es',
         icons: [

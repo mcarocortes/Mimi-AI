@@ -25,15 +25,6 @@ type AuthContextValue = {
 
 const AuthContext = createContext<AuthContextValue | null>(null)
 
-function readDemoUser(): AppUser | null {
-  try {
-    const raw = localStorage.getItem(DEMO_KEY)
-    return raw ? (JSON.parse(raw) as AppUser) : null
-  } catch {
-    return null
-  }
-}
-
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<AppUser | null>(null)
   const [loading, setLoading] = useState(true)
@@ -42,7 +33,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const supabase = getSupabase()
     if (!supabase) {
-      setUser(readDemoUser())
+      localStorage.removeItem(DEMO_KEY)
+      setUser(null)
       setLoading(false)
       return
     }
