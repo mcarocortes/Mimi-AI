@@ -37,8 +37,11 @@ export function LoginPage() {
           <Logo className="h-11 w-11" />
           <span className="font-display text-2xl font-semibold tracking-tight">MIMI</span>
         </div>
-        <div className="relative flex flex-1 items-center justify-center py-6">
-          <MimiScene size="hero" />
+        <div className="relative flex flex-1 items-center justify-center overflow-hidden py-6">
+          <MimiScene
+            size="hero"
+            splineUrl="https://prod.spline.design/RqTMcMyg7pjNrJIA/scene.splinecode"
+          />
         </div>
         <div className="relative max-w-md">
           <p className="font-display text-4xl font-semibold leading-[1.1] text-balance">

@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 type Size = 'sm' | 'md' | 'lg' | 'hero'
 
 const SIZES: Record<Size, string> = {
@@ -7,21 +9,50 @@ const SIZES: Record<Size, string> = {
   hero: 'h-[min(72vh,34rem)] w-auto max-w-[28rem]',
 }
 
+const SPLINE_HERO =
+  'h-[min(72vh,34rem)] w-full max-w-[28rem]'
+
+const SPLINE_VIEWER_SRC =
+  'https://cdn.spline.design/@splinetool/viewer@2.0.7/build/spline-viewer.js'
+
 type Props = {
   className?: string
   size?: Size
-  /** Cuando la escena de Spline esté lista, pásala aquí (URL .splinecode). */
+  /** URL .splinecode de Spline. */
   splineUrl?: string
+}
+
+function loadSplineViewer() {
+  if (document.querySelector(`script[src="${SPLINE_VIEWER_SRC}"]`)) return
+  const script = document.createElement('script')
+  script.type = 'module'
+  script.src = SPLINE_VIEWER_SRC
+  document.head.appendChild(script)
+}
+
+function SplineEmbed({ url, className }: { url: string; className: string }) {
+  useEffect(() => {
+    loadSplineViewer()
+  }, [])
+
+  return (
+    <div className={`relative overflow-hidden [transform:translateZ(0)] ${className}`}>
+      <spline-viewer
+        url={url}
+        aria-label="MIMI"
+        className="absolute left-0 top-0 h-full w-full bg-transparent"
+        style={{ height: 'calc(100% + 5.5rem)' }}
+      />
+    </div>
+  )
 }
 
 export function MimiScene({ className = '', size = 'md', splineUrl }: Props) {
   if (splineUrl) {
     return (
-      <iframe
-        title="MIMI"
-        src={splineUrl}
-        className={`border-0 bg-transparent ${SIZES[size]} ${className}`}
-        allow="autoplay"
+      <SplineEmbed
+        url={splineUrl}
+        className={`${size === 'hero' ? SPLINE_HERO : SIZES[size]} ${className}`}
       />
     )
   }
