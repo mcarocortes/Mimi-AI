@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Outfit", ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #000000;
+  --color-ink-soft: #333333;
+  --color-ink-muted: #646464;
+  --color-ash: #a7a7a7;
+  --color-cream: #f9f9f9;
+  --color-cream-2: #ececec;
+  --color-paper: #ffffff;
+  --color-coral: #e85002;
+  --color-coral-dark: #c10801;
+  --color-flame: #f16001;
+  --color-blush: #f8d9c8;
+  --color-plum: #333333;
+  --color-gold: #d9c3ab;
+  --color-sand: #d9c3ab;
+  --color-sage: #e85002;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--color-cream);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+.dark body {
+  background: #000000;
+  color: #f9f9f9;
+}
+
+::selection {
+  background: var(--color-coral);
+  color: white;
+}
+
+textarea {
+  field-sizing: content;
+}
+
+.grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+.brand-gradient {
+  background: linear-gradient(160deg, #000000 0%, #c10801 42%, #f16001 74%, #d9c3ab 100%);
+}
