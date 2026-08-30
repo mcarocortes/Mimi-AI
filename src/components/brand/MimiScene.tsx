@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { MIMI_PNG } from '../../lib/assets'
 
 type Size = 'sm' | 'md' | 'lg' | 'hero'
 
@@ -107,7 +108,7 @@ export function MimiScene({
 
   return (
     <img
-      src="/mimi.png"
+      src={MIMI_PNG}
       alt="MIMI, la astronauta"
       className={`object-contain drop-shadow-2xl select-none ${SIZES[size]} ${className}`}
       draggable={false}

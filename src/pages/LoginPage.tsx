@@ -30,7 +30,7 @@ export function LoginPage() {
   }
 
   return (
-    <div className="min-h-dvh grid lg:grid-cols-2 bg-cream text-ink">
+    <div className="basevh grid lg:grid-cols-2 bg-cream text-ink">
       <section className="relative hidden lg:flex flex-col justify-between p-10 overflow-hidden brand-gradient text-cream">
         <div className="grain absolute inset-0 opacity-50 pointer-events-none" />
         <div className="relative flex items-center gap-2.5">

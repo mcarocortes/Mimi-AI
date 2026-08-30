@@ -1,4 +1,5 @@
 import { ThumbsDown, ThumbsUp } from 'lucide-react'
+import { MIMI_PNG } from '../../lib/assets'
 import type { Message } from '../../lib/types'
 import { cn } from '../../lib/utils'
 
@@ -38,7 +39,7 @@ export function MessageBubble({
     <article className={cn('flex gap-3', mine ? 'justify-end' : 'justify-start')}>
       {!mine && (
         <img
-          src="/mimi.png"
+          src={MIMI_PNG}
           alt=""
           className="mt-1 h-8 w-8 shrink-0 rounded-full bg-coral object-cover object-[center_12%]"
         />

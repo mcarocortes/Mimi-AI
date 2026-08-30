@@ -59,3 +59,7 @@ textarea {
 .brand-gradient {
   background: linear-gradient(160deg, #000000 0%, #c10801 42%, #f16001 74%, #d9c3ab 100%);
 }
+
+.basevh {
+  height: 100vh;
+}
